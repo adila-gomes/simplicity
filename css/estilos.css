@@ -1,8 +1,6 @@
-*, *::after, *::before { box-sizing: border-box; }
+*, *::after, *::before{ box-sizing: border-box; }
 
-/* Declarado no root para que fique de forma global, para que seja aplicada em toda a página de acordo a necessidade. */
-/* Declaração de variáveis para paleta de cores */
-:root {
+:root{
     --cor-titulo: #4d4d4d;
     --cor-texto: #333;
     --cor-escura: #000;
@@ -10,28 +8,26 @@
     --cor-intermediaria: #ececec;
 }
 
-/* Reset em alguns elementos usados neste projeto */
-body, h1, h2, p, figure, .links-menu {
+body, h1, h2, p, figure, .links-menu{
     margin: 0;
     padding: 0;
-    list-style: none; /*Removendo marcadores da lista ul */
+    list-style: none; /*Remove marcadores da lista ul */
 }
 
-/* Importante para uso da medida relativa REM */
-html { font-size: 16px; }
+html{ font-size: 16px; }
 
 /* Fontes que tem espaço deverão estar entre "" */
-body {
+body{
     font-family: "Noto Sans", sans-serif;
     color: var(--cor-texto);
 }
 
-img { max-width: 100%;}
+img{ max-width: 100%;}
 
-/* Links sem underline */
-a { text-decoration: none;}
+a{ text-decoration: none;}
 
-.titulo {
+/* h1 */
+.titulo{
     font-family: Raleway, sans-serif;
 
     /* transformar a letra em maiusculo */
@@ -41,8 +37,7 @@ a { text-decoration: none;}
     font-weight: 800;
     font-size: 1.5rem;
 
-    /* Formatando o link dentro do h1 */
-    a {
+    a{
         background-color: var(--cor-escura);
         color: var(--cor-clara);
         padding: 0.3rem 1rem;
@@ -50,50 +45,32 @@ a { text-decoration: none;}
     }
 }
 
-.topo {
-    /* background-color: yellow ; */ /* ver como irá se comportar */
-    
-    /*viewport height, deixa o espaço variável de acordo com a viewport */
+/* header */
+.topo{
     height: 12vh; 
-    /* height: 150px; provisório */
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* class + a, por se tratar de um link. Assim será configurado os dois */
-.titulo-menu a {
+/* h2 */
+.titulo-menu a{
     color: var(--cor-escura);
     font-size: 1.2rem;
-    
-    /* background-color: aquamarine; */ /*ver como o .titulo-menu se comporta */
-
     padding: 1rem;
-
-    /* Vai fazer com que o "menu" não sobreponha/invade as demais oções da lista */
     display: inline-block;
 }
 
-/* poderia ser: 
-.titulo-menu a:hover
-.links-menu a:hover
-como existe a class menu no nav, já irá agrupar tudo, então usaremos: */
-.menu a:hover, .menu a:focus {
+.menu a:hover, .menu a:focus{
     background-color: var(--cor-intermediaria);
 }
 
-/* Estilos para lista ul contida no menu nav */
-.links-menu {
-
-    /* Atenção! Neste ponto, fazemos com que os links do menu iniciem escondidos (display:none) em telas pequenas. Posteriormente, com a ajuda do CSS combinado com o JS, faremos os comandos necessários para exibir/esconder de forma alternada. */
+.links-menu{
     display: none;
 
-    /* Formatação dos links */
-    a {
+    a{
         color: var(--cor-escura);
         font-weight: bold;
-        /* background-color: yellow; */
         height: 50px;
         display: flex;
         justify-content: center;
@@ -101,7 +78,7 @@ como existe a class menu no nav, já irá agrupar tudo, então usaremos: */
     }
 }
 
-.links-menu.aberto {
+.links-menu.aberto{
 
     /* Ativamos o flex para anular o display:none (fazendo os links aparecerem) e ao mesmo tempo ter os recursos do flex. */
     display: flex;
@@ -113,42 +90,36 @@ como existe a class menu no nav, já irá agrupar tudo, então usaremos: */
     position: absolute;
     left: 0;
     right: 0;
-
     background-color: var(--cor-clara);
 }
 
-/* Exercícios */
-
-/* 
-
-1) Crie uma regra específica para formatar o artigo "Destaque" com as seguintes configurações:
-
-- Altura de 88vh
-- Imagem de fundo (fundo-destaque)
-- Imagem de fundo deve ficar parada
-- Use o flex para alinhar totalmente no meio
-- Use o flex para garantir que os textos fiquem um em cima do outro
-
-2) Crie uma regra para formatar os "h2" e o "p" contidos no "Destaque". Faça com que os textos fiquem centralizados com a cor clada.
-
-*/
-
-.destaque {
+.destaque{
     height: 88vh;
     background-image: url(/imagens/fundo-destaque.jpg);
     /* background-repeat: no-repeat; */
-    position: static;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-
     flex-direction: column;
-    /* Também pode ser feito assim: */
-    /* flex-wrap: wrap;
-    align-content: center; */
 
-    h2, p {
+    h2, p{
         text-align: center;
         color: var(--cor-clara);
     }
+
+    h2{font-size: clamp(3rem, 10vw, 7rem);}
+
+    p{font-size: clamp(1.5rem, 3vw, 3rem);}
 }
+
+/* Sobre função clamp() 
+Função útil para redimensionamento responsivo de acordo com critérios de tamanhos minimo, ideal?variavel/responsivo e máximo. Uso mais comum é para textos responsivos, mas pode ser usado com qualquer propriedade que envolva tamanhos (width, heigth etc)
+
+clamp(
+    tamanho minimo,
+    tamanho ideal/variavel/responsivo,
+    tamanho maximo
+    )
+*/
