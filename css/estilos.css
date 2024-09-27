@@ -215,3 +215,48 @@ footer {
     align-items: center;
 }
 
+/* Regras para as páginas internas (produtos, serviços e contatos) */
+
+.conteudo-interno {
+    background-color: var(--cor-intermediaria);
+    padding: .5rem;
+    border-radius: 8px;
+
+    h2 {
+        padding-left: 0;
+        font-size: .08rem;
+    }
+}
+
+table {
+    border: #000 solid;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+caption {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding-bottom: .3rem;
+}
+
+th, td {border: var(--cor-escura) solid 1px;}
+
+th {
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    padding: .5rem;
+}
+
+td {padding: .4rem;}
+
+td:nth-child(2) {text-align: center;}
+
+td:last-child, th:last-child {text-align: right;}
+
+tr:nth-child(even) {background-color: var(--cor-clara) ;}
+ 
+/* (odd) par 
+(even) ímpar */
