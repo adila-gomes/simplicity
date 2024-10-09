@@ -111,7 +111,7 @@ a { text-decoration: none;}
 
 .destaque {
     height: 88vh;
-    background-image: url(/imagens/fundo-destaque.jpg);
+    background-image: url(imagens/fundo-destaque.jpg);
     /* background-repeat: no-repeat; */
     background-attachment: fixed;
     background-size: cover;
